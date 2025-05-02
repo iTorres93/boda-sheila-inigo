@@ -2,143 +2,85 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Boda de Sheila & Iñigo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boda Sheila & Iñigo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --color-bg: #fdfdfd;
+      --color-accent: #d08c60;
+      --color-text: #333;
+      --color-button: #f4c2c2;
+      --color-button-hover: #f29292;
+    }
+
     body {
       margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background: #fdf6f0;
-      color: #333;
+      font-family: 'Quicksand', sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-text);
       text-align: center;
     }
 
     header {
-      background: #fde9e0;
-      padding: 3em 1em;
+      padding: 2em 1em;
     }
 
-    .header-img {
-      width: 120px;
-      margin-bottom: 1em;
+    header h1 {
+      font-size: 2.5em;
+      margin: 0.5em 0;
+      color: var(--color-accent);
     }
 
-    h1 {
-      font-size: 2.8em;
-      margin: 0;
-      color: #a95b5b;
-    }
-
-    p.subtitle {
-      font-size: 1.2em;
-      color: #555;
-      margin-top: 0.5em;
-    }
-
-    #countdown {
-      font-size: 1.5em;
-      margin-top: 1em;
-      color: #444;
-    }
-
-    .section {
-      padding: 3em 1em;
-    }
-
-    .section h2 {
-      color: #a95b5b;
-      font-size: 2em;
+    section {
+      padding: 2em 1em;
     }
 
     .info {
-      margin: 1em 0;
-      font-size: 1.2em;
+      background-color: #ffe8d9;
+      padding: 2em;
+      border-radius: 20px;
+      margin: 1em auto;
+      max-width: 600px;
     }
 
-    .penguins {
-      max-width: 300px;
-      margin: 2em auto;
-    }
-
-    .btn {
+    .button {
       display: inline-block;
-      background-color: #f6b3b3;
-      color: white;
       padding: 1em 2em;
-      font-size: 1.2em;
-      border: none;
-      border-radius: 10px;
-      text-decoration: none;
-      transition: background 0.3s;
       margin-top: 2em;
+      background-color: var(--color-button);
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      font-size: 1em;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
     }
 
-    .btn:hover {
-      background-color: #e59494;
-    }
-
-    .photo-banner {
-      width: 100%;
-      max-height: 400px;
-      object-fit: cover;
-    }
-
-    footer {
-      padding: 2em 1em;
-      background: #fde9e0;
-      color: #666;
-      font-size: 0.9em;
+    .button:hover {
+      background-color: var(--color-button-hover);
     }
   </style>
 </head>
 <body>
 
-  <!-- Foto principal -->
-  <img src="https://images.unsplash.com/photo-1529257414771-1960dba2b7a1?fit=crop&w=1500&q=80" alt="Foto pareja" class="photo-banner" />
-
   <header>
-    <img src="https://www.svgrepo.com/show/428833/penguin-love.svg" alt="Pingüinos enamorados" class="header-img"/>
     <h1>Sheila & Iñigo</h1>
-    <p class="subtitle">¡Nos casamos! 11 de octubre de 2025</p>
-    <div id="countdown"></div>
+    <p>¡Nos casamos!</p>
   </header>
 
-  <!-- Información del evento -->
-  <section class="section">
-    <h2>El Gran Día</h2>
-    <p class="info">📍 Monasterio del Espino, Burgos</p>
-    <p class="info">🕔 17:00 horas</p>
-    <img src="https://www.svgrepo.com/show/424204/penguin-couple.svg" alt="Pingüinos tiernos" class="penguins" />
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe5_SArXTmJkFdNud1HQ4udxOumduzciO6NwJ3MlkBPxK3-Ow/viewform?usp=header" class="btn" target="_blank">Confirmar asistencia</a>
+  <section class="info">
+    <h2>Detalles del Evento</h2>
+    <p><strong>Fecha:</strong> 11 de octubre de 2025</p>
+    <p><strong>Hora:</strong> 18:00</p>
+    <p><strong>Lugar:</strong> Monasterio del Espino, Burgos</p>
   </section>
 
-  <footer>
-    Hecho con 💗 por Sheila & Iñigo – 2025
-  </footer>
+  <section>
+    <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSe5_SArXTmJkFdNud1HQ4udxOumduzciO6NwJ3MlkBPxK3-Ow/viewform?usp=header" target="_blank">
+      Confirmar asistencia
+    </a>
+  </section>
 
-  <!-- Script: Contador regresivo -->
-  <script>
-    function countdown() {
-      const eventDate = new Date("2025-10-11T17:00:00");
-      const now = new Date();
-      const diff = eventDate - now;
-
-      if (diff <= 0) {
-        document.getElementById("countdown").textContent = "¡Ya estamos celebrando!";
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      document.getElementById("countdown").textContent =
-        `${days} días ${hours}h ${minutes}m ${seconds}s`;
-    }
-
-    setInterval(countdown, 1000);
-    countdown();
-  </script>
 </body>
 </html>
